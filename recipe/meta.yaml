@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-autosave-on-focus-change" %}
-{% set version = "0.2.0" %}
+{% set version = "0.4.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_autosave_on_focus_change-{{ version }}.tar.gz
-  sha256: 1b27ef83ac96e750d4050a82f347c9e5766e310a259ba683f7f74fca8b6ffc51
+  sha256: 549de0256fbd3c02dd6e6454960e44e5cb710ee50378f13ad0fae74eaec8d94b
 
 build:
   number: 0
@@ -17,17 +17,17 @@ build:
 
 requirements:
   host:
-    - jupyter-packaging
+    - hatchling >=1.5.0
+    - jupyterlab >=4.0.0,<5
+    - hatch-nodejs-version >=0.3.2
+    - hatch-jupyter-builder >=0.5
     - pip
-    - python >=3.6
+    - python >=3.8
   run:
-    - jupyter-packaging <2,~=0.9
-    - jupyterlab ~=3.0
-    - python >=3.6
+    - jupyterlab >=4.0.0,<5
+    - python >=3.8
 
 test:
-  imports:
-    - jupyterlab_autosave_on_focus_change
   commands:
     - pip check
     - jupyter labextension list
