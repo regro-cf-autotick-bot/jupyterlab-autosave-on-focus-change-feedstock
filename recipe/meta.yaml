@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-autosave-on-focus-change" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_autosave_on_focus_change-{{ version }}.tar.gz
-  sha256: 549de0256fbd3c02dd6e6454960e44e5cb710ee50378f13ad0fae74eaec8d94b
+  sha256: 54bbec282cfe56f50566e7ed7caf51c98db7280695da97efc089b981622964c9
 
 build:
   number: 0
