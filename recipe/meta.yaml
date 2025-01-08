@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_autosave_on_focus_change-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_autosave_on_focus_change-{{ version }}.tar.gz
   sha256: 54bbec282cfe56f50566e7ed7caf51c98db7280695da97efc089b981622964c9
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -22,10 +22,10 @@ requirements:
     - hatch-nodejs-version >=0.3.2
     - hatch-jupyter-builder >=0.5
     - pip
-    - python >=3.8
+    - python {{ python_min }}
   run:
     - jupyterlab >=4.0.0,<5
-    - python >=3.8
+    - python >={{ python_min }}
 
 test:
   commands:
@@ -34,6 +34,7 @@ test:
     - jupyter labextension list 2>&1 | grep -ie "jupyterlab_autosave_on_focus_change.*OK"
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/s-weigand/jupyterlab_autosave_on_focus_change
